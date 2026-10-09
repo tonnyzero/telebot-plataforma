@@ -4,25 +4,37 @@
   "bots": [
     {
       "id": "bot_luna",
-      "name": "Luna VIP",
+      "name": "Luna VIP 🔥",
       "token": "8952562959:AAHpBiDXWCO03zh9m312FUP9BotLjcB7suQ",
       "active": true,
-      "welcomeMessage": "🔥 Bem-vindo(a) ao canal oficial da **Luna**!\n\nAqui você encontra os melhores conteúdos exclusivos, prévias diárias e acesso vitalício ou mensal ao meu canal VIP privativo.\n\n👇 Escolha um dos planos abaixo para liberar o acesso imediatamente:",
+      "mediaType": "none",
+      "mediaUrl": "",
+      "welcomeMessage": "Oii Amor Olha O que Tá te esperando no meu Vip 😈\n\n🌶️ 200 vídeos de sexo amador com os peões\n🌶️ 80 vídeos batendo siririca e gozando gostoso\n🌶️ 40 vídeos fazendo sexo com o sobrinho\n🌶️ 305 vídeos de suruba amador\n🌶️ 108 vídeos Fazendo anal e gozando gostoso\n🌶️ 150 vídeos Fazendo Fetiches\n🌶️ 40 vídeos falando e gozando com seu nome\n🌶️ 350 Fotos Pelada e Bem Gostosa\n🌶️ 1x Meu WhatsApp pessoal pra trocarmos fotos picantes\n\n⚠️ **Atenção:**\nSó restam poucas vagas com esse preço promocional.\n🔒 Clica agora e libere tudo antes que saia do ar! 🔒",
+      "pixMessage": "👑 **PEDIDO #{orderId} GERADO COM SUCESSO!**\n\n📦 **Item:** {planName}\n💰 **Valor Promocional:** R$ {price}\n\n⚡ **Pague via PIX Copia e Cola:**\n`{pixCode}`\n\n_(Toque no código acima para copiar automaticamente)_\n\n⏳ **Liberação Imediata:** Assim que o pagamento for concluído, nosso sistema identificará automaticamente em segundos e enviará o link VIP privativo aqui!",
       "plans": [
         {
-          "id": "luna_mensal",
-          "name": "Acesso Mensal VIP",
-          "price": 29.90,
-          "description": "30 dias de acesso completo aos vídeos e fotos",
+          "id": "luna_vitalicio",
+          "name": "👑 VITALÍCIO + BRINDE 🎁",
+          "price": 39.90,
+          "description": "Acesso vitalício sem renovação + grupo de mídias secretas",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
         },
         {
-          "id": "luna_vitalicio",
-          "name": "Acesso Vitalício VIP + Bônus",
-          "price": 59.90,
-          "description": "Acesso vitalício sem renovação + grupo de mídias secretas",
+          "id": "luna_3meses",
+          "name": "⭐ PLANO 3 MESES ⭐",
+          "price": 19.90,
+          "description": "Acesso completo por 90 dias",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "luna_15dias",
+          "name": "🔥 VIP 15 DIAS 🔥",
+          "price": 10.90,
+          "description": "Acesso teste por 15 dias",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
@@ -31,25 +43,37 @@
     },
     {
       "id": "bot_bia",
-      "name": "Bia VIP",
+      "name": "Bia VIP 💋",
       "token": "8985315902:AAGULClOk2H0nXbpQfdbqohaSzNphdpTnU0",
       "active": true,
-      "welcomeMessage": "💋 Olá, amor! Seja muito bem-vindo ao bot da **Bia**!\n\nQuer ter acesso aos meus conteúdos mais quentes e conversar comigo no privado? Escolha um plano abaixo para liberar agora mesmo via PIX:",
+      "mediaType": "none",
+      "mediaUrl": "",
+      "welcomeMessage": "Oiii amor, veio me procurar? 🍌 Eu te ajudo 🤤\n\nO que eu não posto no Instagram: 👇\n\n🍑 Buceta aberta 🎬 Pelo treinador\n🍆 Anal no pelo 🎬 Peidando gozo\n🔶 Privacy e Lives 🎬 +350 mídias\n💉 Me dedando 🎬 Realizo fetiches\n💦 Sexo em público 🎬 Flagras\n\n💝 **Brindes se entrar agora:**\n🎁 Sentando na sua cara\n🎁 Chamadinha pelada 13min\n🎁 Punheta guiada\n\n🚨 **Disponível apenas hoje até as 00:05.**\nVem me ver peladinha e sem censura 👇",
+      "pixMessage": "👑 **PEDIDO #{orderId} GERADO COM SUCESSO!**\n\n📦 **Item:** {planName}\n💰 **Valor:** R$ {price}\n\n⚡ **Pague via PIX Copia e Cola:**\n`{pixCode}`\n\n_(Toque no código acima para copiar automaticamente)_\n\n⏳ **Liberação Instantânea:** Pagou, o link exclusivo é enviado automaticamente na hora!",
       "plans": [
         {
-          "id": "bia_mensal",
-          "name": "Acesso Mensal",
-          "price": 24.90,
-          "description": "Acesso durante 30 dias",
+          "id": "bia_completo",
+          "name": "😈 VIP COMPLETO + BÔNUS",
+          "price": 27.90,
+          "description": "Acesso vitalício completo + todos os bônus",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
         },
         {
-          "id": "bia_vitalicio",
-          "name": "Acesso Vitalício",
-          "price": 49.90,
-          "description": "Pague uma vez e tenha acesso para sempre",
+          "id": "bia_trimestral",
+          "name": "🤤 VIP TRIMENSAL",
+          "price": 18.90,
+          "description": "3 meses de acesso aos conteúdos",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "bia_mensal",
+          "name": "❤️ VIP MENSAL",
+          "price": 14.90,
+          "description": "30 dias de acesso",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
@@ -58,25 +82,37 @@
     },
     {
       "id": "bot_talia",
-      "name": "Talia VIP",
+      "name": "Talia VIP ✨",
       "token": "8806621600:AAFbobZT4OXeLXoD6hL-sunsPrF3oug9AW4",
       "active": true,
-      "welcomeMessage": "✨ Oi, delícia! Você chegou no cantinho secreto da **Talia**.\n\nConteúdos inéditos toda semana sem censura. Clique abaixo para gerar o PIX e entrar no VIP na hora:",
+      "mediaType": "none",
+      "mediaUrl": "",
+      "welcomeMessage": "Oii... 😳❤️\n\nEu sei que eu passo essa carinha de anjinha... 😇\nMas tem coisa que eu não mostro pra qualquer um, cuida 👀🔥\n\nTipo, a maior parte do que eu realmente sou fica guardadinha no meu **VIP** 😈✨\nLá você começa a entender o lado que eu escondo 🤤🖤\n\nEu até te dei um descontinho só pra hoje... 💸🫣\nPorque eu não quero mais um seguidor qualquer me olhando de longe, véi 😒\n\nAgora eu fico na dúvida se você realmente quer descobrir ou se só vai ficar olhando de fora kkkk 😵‍💫💭\n\n🚪💨 **Se for entrar, vá logo...**\nPorque eu já tô começando a mudar de ideia 😮‍💨💔🔥",
+      "pixMessage": "👑 **PEDIDO #{orderId} GERADO COM SUCESSO!**\n\n📦 **Item:** {planName}\n💰 **Valor Promocional:** R$ {price}\n\n⚡ **Pague via PIX Copia e Cola:**\n`{pixCode}`\n\n_(Toque no código para copiar)_\n\n⏳ **Liberação Instantânea:** O link do meu cantinho secreto será enviado aqui assim que o PIX compensar!",
       "plans": [
         {
-          "id": "talia_mensal",
-          "name": "Plano Mensal VIP",
-          "price": 34.90,
-          "description": "30 dias de acesso ilimitado",
+          "id": "talia_vitalicio",
+          "name": "👑 VITALÍCIO + AVALIAÇÃO",
+          "price": 47.00,
+          "description": "Acesso vitalício definitivo + avaliação no PV",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
         },
         {
-          "id": "talia_vitalicio",
-          "name": "Plano Vitalício Diamante",
-          "price": 69.90,
-          "description": "Acesso definitivo para sempre",
+          "id": "talia_90dias",
+          "name": "⭐ 90 DIAS COMIGO",
+          "price": 37.00,
+          "description": "3 meses de intimidade",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "talia_30dias",
+          "name": "✨ 30 DIAS COMIGO",
+          "price": 25.00,
+          "description": "1 mês de acesso ao VIP",
           "type": "channel_invite",
           "channelId": "",
           "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
