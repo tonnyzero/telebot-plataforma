@@ -1,0 +1,88 @@
+{
+  "adminPassword": "admin",
+  "pushinPayToken": "72093|BuXW4REHPWwyPIPS0a8OChHAmHAxUgTSx0Ha1IPQ18789bd6",
+  "bots": [
+    {
+      "id": "bot_luna",
+      "name": "Luna VIP",
+      "token": "8952562959:AAHpBiDXWCO03zh9m312FUP9BotLjcB7suQ",
+      "active": true,
+      "welcomeMessage": "🔥 Bem-vindo(a) ao canal oficial da **Luna**!\n\nAqui você encontra os melhores conteúdos exclusivos, prévias diárias e acesso vitalício ou mensal ao meu canal VIP privativo.\n\n👇 Escolha um dos planos abaixo para liberar o acesso imediatamente:",
+      "plans": [
+        {
+          "id": "luna_mensal",
+          "name": "Acesso Mensal VIP",
+          "price": 29.90,
+          "description": "30 dias de acesso completo aos vídeos e fotos",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "luna_vitalicio",
+          "name": "Acesso Vitalício VIP + Bônus",
+          "price": 59.90,
+          "description": "Acesso vitalício sem renovação + grupo de mídias secretas",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        }
+      ]
+    },
+    {
+      "id": "bot_bia",
+      "name": "Bia VIP",
+      "token": "8985315902:AAGULClOk2H0nXbpQfdbqohaSzNphdpTnU0",
+      "active": true,
+      "welcomeMessage": "💋 Olá, amor! Seja muito bem-vindo ao bot da **Bia**!\n\nQuer ter acesso aos meus conteúdos mais quentes e conversar comigo no privado? Escolha um plano abaixo para liberar agora mesmo via PIX:",
+      "plans": [
+        {
+          "id": "bia_mensal",
+          "name": "Acesso Mensal",
+          "price": 24.90,
+          "description": "Acesso durante 30 dias",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "bia_vitalicio",
+          "name": "Acesso Vitalício",
+          "price": 49.90,
+          "description": "Pague uma vez e tenha acesso para sempre",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        }
+      ]
+    },
+    {
+      "id": "bot_talia",
+      "name": "Talia VIP",
+      "token": "8806621600:AAFbobZT4OXeLXoD6hL-sunsPrF3oug9AW4",
+      "active": true,
+      "welcomeMessage": "✨ Oi, delícia! Você chegou no cantinho secreto da **Talia**.\n\nConteúdos inéditos toda semana sem censura. Clique abaixo para gerar o PIX e entrar no VIP na hora:",
+      "plans": [
+        {
+          "id": "talia_mensal",
+          "name": "Plano Mensal VIP",
+          "price": 34.90,
+          "description": "30 dias de acesso ilimitado",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        },
+        {
+          "id": "talia_vitalicio",
+          "name": "Plano Vitalício Diamante",
+          "price": 69.90,
+          "description": "Acesso definitivo para sempre",
+          "type": "channel_invite",
+          "channelId": "",
+          "inviteLink": "https://t.me/+SEU_CANAL_AQUI"
+        }
+      ]
+    }
+  ],
+  "orders": []
+}
