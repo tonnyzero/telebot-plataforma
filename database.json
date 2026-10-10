@@ -1,5 +1,6 @@
 {
-  "adminPassword": "admin",
+  "adminEmail": "tonnyzero@outlook.com",
+  "adminPassword": "16271627Ri",
   "pushinPayToken": "72093|BuXW4REHPWwyPIPS0a8OChHAmHAxUgTSx0Ha1IPQ18789bd6",
   "bots": [
     {
@@ -15,7 +16,7 @@
         {
           "id": "luna_vitalicio",
           "name": "👑 VITALÍCIO + BRINDE 🎁",
-          "price": 39.90,
+          "price": 39.9,
           "description": "Acesso vitalício sem renovação + grupo de mídias secretas",
           "type": "channel_invite",
           "channelId": "",
@@ -24,7 +25,7 @@
         {
           "id": "luna_3meses",
           "name": "⭐ PLANO 3 MESES ⭐",
-          "price": 19.90,
+          "price": 19.9,
           "description": "Acesso completo por 90 dias",
           "type": "channel_invite",
           "channelId": "",
@@ -33,7 +34,7 @@
         {
           "id": "luna_15dias",
           "name": "🔥 VIP 15 DIAS 🔥",
-          "price": 10.90,
+          "price": 10.9,
           "description": "Acesso teste por 15 dias",
           "type": "channel_invite",
           "channelId": "",
@@ -54,7 +55,7 @@
         {
           "id": "bia_completo",
           "name": "😈 VIP COMPLETO + BÔNUS",
-          "price": 27.90,
+          "price": 27.9,
           "description": "Acesso vitalício completo + todos os bônus",
           "type": "channel_invite",
           "channelId": "",
@@ -63,7 +64,7 @@
         {
           "id": "bia_trimestral",
           "name": "🤤 VIP TRIMENSAL",
-          "price": 18.90,
+          "price": 18.9,
           "description": "3 meses de acesso aos conteúdos",
           "type": "channel_invite",
           "channelId": "",
@@ -72,7 +73,7 @@
         {
           "id": "bia_mensal",
           "name": "❤️ VIP MENSAL",
-          "price": 14.90,
+          "price": 14.9,
           "description": "30 dias de acesso",
           "type": "channel_invite",
           "channelId": "",
@@ -93,7 +94,7 @@
         {
           "id": "talia_vitalicio",
           "name": "👑 VITALÍCIO + AVALIAÇÃO",
-          "price": 47.00,
+          "price": 47,
           "description": "Acesso vitalício definitivo + avaliação no PV",
           "type": "channel_invite",
           "channelId": "",
@@ -102,7 +103,7 @@
         {
           "id": "talia_90dias",
           "name": "⭐ 90 DIAS COMIGO",
-          "price": 37.00,
+          "price": 37,
           "description": "3 meses de intimidade",
           "type": "channel_invite",
           "channelId": "",
@@ -111,7 +112,7 @@
         {
           "id": "talia_30dias",
           "name": "✨ 30 DIAS COMIGO",
-          "price": 25.00,
+          "price": 25,
           "description": "1 mês de acesso ao VIP",
           "type": "channel_invite",
           "channelId": "",

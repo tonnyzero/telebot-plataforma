@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telebot Red - Painel de Controle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Telebot Red - Painel de Controle VIP</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -25,6 +25,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -32,6 +33,31 @@
       color: var(--text-white);
       display: flex;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Mobile Header & Hamburger */
+    .mobile-nav-bar {
+      display: none;
+      width: 100%;
+      background: #0d0d10;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .menu-toggle-btn {
+      background: #1b1b22;
+      border: 1px solid var(--border-color);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
     }
 
     /* Sidebar */
@@ -42,6 +68,8 @@
       display: flex;
       flex-direction: column;
       padding: 24px 16px;
+      transition: transform 0.3s ease;
+      z-index: 99;
     }
 
     .brand {
@@ -91,7 +119,6 @@
       border-radius: 8px;
       color: var(--text-muted);
       cursor: pointer;
-      text-decoration: none;
       font-size: 14px;
       font-weight: 500;
       transition: all 0.2s ease;
@@ -127,11 +154,12 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      height: 100vh;
       overflow-y: auto;
     }
 
     .top-header {
-      padding: 20px 36px;
+      padding: 20px 32px;
       border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
@@ -140,12 +168,12 @@
     }
 
     .top-header h1 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
     }
 
     .content-area {
-      padding: 36px;
+      padding: 28px 32px;
       max-width: 1300px;
       width: 100%;
       margin: 0 auto;
@@ -154,15 +182,15 @@
     /* Metrics Grid */
     .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
     .metric-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 22px;
+      padding: 20px;
       border-radius: 12px;
       position: relative;
       overflow: hidden;
@@ -179,15 +207,15 @@
     }
 
     .metric-title {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .metric-value {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.5px;
     }
@@ -195,7 +223,7 @@
     .metric-subtitle {
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     /* Cards */
@@ -203,27 +231,29 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 30px;
+      padding: 22px;
+      margin-bottom: 24px;
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .card-header h2 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
     }
 
     /* Buttons & Inputs */
     .btn {
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       border: none;
       cursor: pointer;
@@ -255,7 +285,7 @@
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .form-group label {
@@ -263,6 +293,7 @@
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 6px;
+      font-weight: 500;
     }
 
     .input-field {
@@ -270,7 +301,7 @@
       background: #0d0d10;
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 11px 13px;
       color: var(--text-white);
       font-size: 14px;
       outline: none;
@@ -281,7 +312,12 @@
       border-color: var(--primary-red);
     }
 
-    /* Bots Table */
+    textarea.input-field {
+      font-family: inherit;
+      line-height: 1.5;
+    }
+
+    /* Bot Card */
     .bot-card {
       background: #181820;
       border: 1px solid var(--border-color);
@@ -297,6 +333,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .bot-name {
@@ -330,39 +368,43 @@
       color: var(--warning);
     }
 
-    .plan-chip {
-      background: #20202a;
-      border: 1px solid #313140;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 13px;
-      display: inline-flex;
-      gap: 8px;
+    /* Plan Editor Box */
+    .plan-box {
+      background: #0e0e12;
+      border: 1px solid #252530;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .plan-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr auto;
+      gap: 10px;
       align-items: center;
     }
 
-    .plan-price {
-      color: var(--accent-red);
-      font-weight: 700;
-    }
-
+    /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     th {
       text-align: left;
-      padding: 12px;
+      padding: 10px;
       color: var(--text-muted);
       border-bottom: 1px solid var(--border-color);
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
     }
 
     td {
-      padding: 14px 12px;
+      padding: 12px 10px;
       border-bottom: 1px solid #1a1a22;
     }
 
@@ -374,20 +416,23 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(4px);
       align-items: center;
       justify-content: center;
       z-index: 999;
+      padding: 16px;
     }
 
     .modal-content {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      max-width: 550px;
-      width: 90%;
-      padding: 28px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
     }
 
     .tab-content {
@@ -397,12 +442,89 @@
     .tab-content.active {
       display: block;
     }
+
+    /* Responsive adjustments for Smartphone */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .mobile-nav-bar {
+        display: flex;
+      }
+
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        transform: translateX(-100%);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 98;
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      .top-header {
+        display: none;
+      }
+
+      .content-area {
+        padding: 16px;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .metric-card {
+        padding: 14px;
+      }
+
+      .metric-value {
+        font-size: 18px;
+      }
+
+      .plan-row {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        min-width: 550px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
+  <!-- Overlay para fechar menu no mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMobileMenu()"></div>
+
+  <!-- Barra Superior do Celular -->
+  <header class="mobile-nav-bar">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <div class="brand-icon" style="width: 28px; height: 28px; font-size: 16px;">T</div>
+      <div class="brand-title" style="font-size: 16px;">Telebot <span>Red</span></div>
+    </div>
+    <button class="menu-toggle-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+  </header>
+
+  <!-- Sidebar Lateral -->
+  <aside class="sidebar" id="sidebar">
     <div class="brand">
       <div class="brand-icon">T</div>
       <div class="brand-title">Telebot <span>Red</span></div>
@@ -410,21 +532,21 @@
 
     <nav class="nav-menu">
       <a class="nav-item active" onclick="switchTab('dashboard')">📊 Dashboard & Vendas</a>
-      <a class="nav-item" onclick="switchTab('bots')">🤖 Gerenciar Bots (3)</a>
-      <a class="nav-item" onclick="switchTab('plans')">💎 Planos & Produtos</a>
-      <a class="nav-item" onclick="switchTab('settings')">⚙️ Configurações & PIX</a>
+      <a class="nav-item" onclick="switchTab('bots')">💬 Mensagens, Fotos & Mídias</a>
+      <a class="nav-item" onclick="switchTab('plans')">💎 Planos & Preços dos Bots</a>
+      <a class="nav-item" onclick="switchTab('settings')">⚙️ Pushin Pay & Sistema</a>
     </nav>
 
     <div class="admin-badge">
       <div class="status-dot"></div>
       <div>
         <div style="font-weight: 600;">Painel Pessoal</div>
-        <div style="color: var(--text-muted); font-size: 11px;">Pushin Pay Conectada</div>
+        <div style="color: var(--text-muted); font-size: 11px;">Pushin Pay Conectada 24h</div>
       </div>
     </div>
   </aside>
 
-  <!-- Main Wrapper -->
+  <!-- Conteúdo Principal -->
   <div class="main-wrapper">
     <header class="top-header">
       <h1 id="page-title">Visão Geral & Vendas</h1>
@@ -435,23 +557,23 @@
 
     <main class="content-area">
 
-      <!-- TAB: DASHBOARD -->
+      <!-- TAB 1: DASHBOARD -->
       <section id="tab-dashboard" class="tab-content active">
         <div class="metrics-grid">
           <div class="metric-card">
             <div class="metric-title">Faturamento Total</div>
             <div class="metric-value" id="metric-revenue">R$ 0,00</div>
-            <div class="metric-subtitle">Vendas confirmadas via PIX</div>
+            <div class="metric-subtitle">Vendas aprovadas via PIX</div>
           </div>
           <div class="metric-card">
             <div class="metric-title">PIX Pagos</div>
             <div class="metric-value" id="metric-paid">0</div>
-            <div class="metric-subtitle">Transações aprovadas 24h</div>
+            <div class="metric-subtitle">Acessos entregues na hora</div>
           </div>
           <div class="metric-card">
             <div class="metric-title">PIX Pendentes</div>
             <div class="metric-value" id="metric-pending">0</div>
-            <div class="metric-subtitle">Aguardando pagamento</div>
+            <div class="metric-subtitle">Aguardando comprador</div>
           </div>
           <div class="metric-card">
             <div class="metric-title">Bots Ativos</div>
@@ -462,7 +584,7 @@
 
         <div class="panel-card">
           <div class="card-header">
-            <h2>Últimas Transações PIX (Pushin Pay)</h2>
+            <h2>Transações PIX em Tempo Real</h2>
           </div>
           <div style="overflow-x: auto;">
             <table>
@@ -470,8 +592,8 @@
                 <tr>
                   <th>ID Pedido</th>
                   <th>Bot</th>
-                  <th>Plano/Produto</th>
-                  <th>Comprador (Telegram)</th>
+                  <th>Plano</th>
+                  <th>Cliente</th>
                   <th>Valor</th>
                   <th>Status</th>
                   <th>Data</th>
@@ -480,7 +602,7 @@
               <tbody id="orders-table-body">
                 <tr>
                   <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">
-                    Nenhuma venda registrada ainda. Os pagamentos aparecerão aqui em tempo real.
+                    Nenhum pedido recebido ainda. Os pagamentos confirmados aparecerão aqui automaticamente.
                   </td>
                 </tr>
               </tbody>
@@ -489,48 +611,48 @@
         </div>
       </section>
 
-      <!-- TAB: BOTS -->
+      <!-- TAB 2: MENSAGENS, FOTOS E VÍDEOS DOS BOTS -->
       <section id="tab-bots" class="tab-content">
         <div class="panel-card">
           <div class="card-header">
-            <h2>Seus Bots Configurados</h2>
+            <div>
+              <h2>Personalização Completa dos Bots</h2>
+              <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Altere as mensagens apelativas, adicione fotos, vídeos e prévias para cada bot igual ao Telebot.</p>
+            </div>
             <button class="btn btn-red" onclick="openAddBotModal()">+ Adicionar Outro Bot</button>
           </div>
-          <div id="bots-list">
-            <!-- Dynamic bot cards -->
-          </div>
+          <div id="bots-list"></div>
         </div>
       </section>
 
-      <!-- TAB: PLANS -->
+      <!-- TAB 3: PLANOS E PRODUTOS DETALHADOS -->
       <section id="tab-plans" class="tab-content">
         <div class="panel-card">
           <div class="card-header">
-            <h2>Planos & Modelos de Venda</h2>
-            <p style="color: var(--text-muted); font-size: 13px;">Configure os preços e links de acesso dos seus canais VIP para cada bot.</p>
+            <div>
+              <h2>Planos, Valores & Links de Convite VIP</h2>
+              <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Adicione quantos planos quiser, mude o nome do botão, preço e o link que o cliente recebe após pagar.</p>
+            </div>
           </div>
-          <div id="plans-management">
-            <!-- Dynamic plans list -->
-          </div>
+          <div id="plans-container"></div>
         </div>
       </section>
 
-      <!-- TAB: SETTINGS -->
+      <!-- TAB 4: CONFIGURAÇÕES -->
       <section id="tab-settings" class="tab-content">
         <div class="panel-card">
           <div class="card-header">
-            <h2>Configurações do Gateway & Segurança</h2>
+            <h2>Gateway Pushin Pay & Segurança</h2>
           </div>
           <form id="settings-form" onsubmit="saveSettings(event)">
             <div class="form-group">
               <label>Token de API Pushin Pay</label>
               <input type="text" id="setting-token" class="input-field" placeholder="Seu token Pushin Pay">
-              <small style="color: var(--text-muted); display: block; margin-top: 4px;">Usado para gerar PIX instantâneo 24h e receber confirmação automática.</small>
             </div>
 
             <div class="form-group">
-              <label>Senha de Acesso ao Painel</label>
-              <input type="password" id="setting-password" class="input-field" placeholder="Senha do painel administrativo">
+              <label>Senha do Painel Administrativo</label>
+              <input type="password" id="setting-password" class="input-field" placeholder="Sua senha de acesso">
             </div>
 
             <button type="submit" class="btn btn-red">Salvar Alterações</button>
@@ -539,43 +661,94 @@
 
         <div class="panel-card">
           <div class="card-header">
-            <h2>URL de Webhook da Pushin Pay</h2>
+            <h2>URL de Notificação Automática (Webhook)</h2>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">
-            Copie a URL abaixo e cole no campo de <b>Webhook</b> do seu painel da Pushin Pay para confirmação automática instantânea:
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">
+            Cole esta URL no painel da Pushin Pay para liberação instantânea 24h:
           </p>
-          <input type="text" id="webhook-url-display" class="input-field" readonly value="https://SEU-DOMINIO.up.railway.app/api/webhook/pushinpay">
+          <input type="text" id="webhook-url-display" class="input-field" readonly value="https://telebot-plataforma-production.up.railway.app/api/webhook/pushinpay">
         </div>
       </section>
 
     </main>
   </div>
 
-  <!-- Modal Adicionar/Editar Bot -->
-  <div class="modal" id="botModal">
+  <!-- Modal Editar Mensagens & Mídia do Bot -->
+  <div class="modal" id="editBotModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 16px;" id="modal-bot-title">Editar Bot</h2>
+      <input type="hidden" id="edit-bot-id">
+
+      <div class="form-group">
+        <label>Nome do Bot / Criadora</label>
+        <input type="text" id="edit-bot-name" class="input-field">
+      </div>
+
+      <div class="form-group">
+        <label>Tipo de Mídia no Início (/start)</label>
+        <select id="edit-bot-mediatype" class="input-field" onchange="toggleMediaUrlInput()">
+          <option value="none">Apenas Texto (Sem foto/vídeo)</option>
+          <option value="photo">Foto / Banner Picante (JPG/PNG)</option>
+          <option value="video">Vídeo / Prévia Provocante (MP4)</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="media-url-group">
+        <label>Link Direto da Foto ou Vídeo</label>
+        <input type="text" id="edit-bot-mediaurl" class="input-field" placeholder="https://exemplo.com/previa.mp4 ou foto.jpg">
+        <small style="color: var(--text-muted); display: block; margin-top: 4px;">Cole o link direto da imagem ou vídeo (hospedado no Imgur, Postimages ou canal público).</small>
+      </div>
+
+      <div class="form-group">
+        <label>Mensagem Principal de Venda (Copy Apelativa)</label>
+        <textarea id="edit-bot-welcome" class="input-field" rows="10"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Mensagem ao Gerar o PIX</label>
+        <textarea id="edit-bot-pixmsg" class="input-field" rows="4"></textarea>
+        <small style="color: var(--text-muted); display: block; margin-top: 4px;">Tags disponíveis: {orderId}, {planName}, {price}, {pixCode}</small>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+        <button class="btn btn-outline" onclick="closeModal('editBotModal')">Cancelar</button>
+        <button class="btn btn-red" onclick="saveBotDetails()">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Adicionar Novo Bot -->
+  <div class="modal" id="addBotModal">
     <div class="modal-content">
       <h2 style="margin-bottom: 16px;">Adicionar Novo Bot</h2>
       <div class="form-group">
-        <label>Nome do Bot / Criadora</label>
-        <input type="text" id="new-bot-name" class="input-field" placeholder="Ex: Chloe VIP">
+        <label>Nome do Bot</label>
+        <input type="text" id="new-bot-name" class="input-field" placeholder="Ex: Melina VIP 🔥">
       </div>
       <div class="form-group">
         <label>Token do Bot (Telegram @BotFather)</label>
         <input type="text" id="new-bot-token" class="input-field" placeholder="123456789:ABCdef...">
       </div>
       <div class="form-group">
-        <label>Mensagem de Boas-Vindas</label>
-        <textarea id="new-bot-welcome" class="input-field" rows="3" placeholder="Mensagem exibida ao dar /start"></textarea>
+        <label>Mensagem Inicial (/start)</label>
+        <textarea id="new-bot-welcome" class="input-field" rows="5" placeholder="Mensagem provocante com lista de benefícios..."></textarea>
       </div>
       <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
-        <button class="btn btn-outline" onclick="closeModal('botModal')">Cancelar</button>
-        <button class="btn btn-red" onclick="saveNewBot()">Adicionar Bot</button>
+        <button class="btn btn-outline" onclick="closeModal('addBotModal')">Cancelar</button>
+        <button class="btn btn-red" onclick="saveNewBot()">Adicionar</button>
       </div>
     </div>
   </div>
 
   <script>
     let appData = { bots: [], orders: [] };
+
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
 
     async function loadData() {
       try {
@@ -602,11 +775,17 @@
 
       const titles = {
         'dashboard': 'Visão Geral & Vendas',
-        'bots': 'Gerenciamento de Bots',
-        'plans': 'Planos & Produtos',
-        'settings': 'Configurações'
+        'bots': 'Mensagens, Fotos & Mídias dos Bots',
+        'plans': 'Planos, Valores & Links de Acesso',
+        'settings': 'Configurações do Sistema'
       };
       document.getElementById('page-title').innerText = titles[tabId] || 'Painel';
+
+      // Fechar menu no celular após clicar
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('open')) {
+        toggleMobileMenu();
+      }
     }
 
     function renderDashboard() {
@@ -622,7 +801,7 @@
 
       const tbody = document.getElementById('orders-table-body');
       if (orders.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">Nenhuma transação registrada até o momento.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">Nenhum pedido recebido ainda.</td></tr>`;
         return;
       }
 
@@ -631,7 +810,7 @@
           <td><code>#${order.id.slice(-6)}</code></td>
           <td><b>${order.botName}</b></td>
           <td>${order.planName}</td>
-          <td>@${order.telegramUser || 'Desconhecido'}</td>
+          <td>@${order.telegramUser || 'Anônimo'}</td>
           <td style="color: var(--accent-red); font-weight: 700;">R$ ${Number(order.amount).toFixed(2).replace('.', ',')}</td>
           <td>
             <span class="badge ${order.status === 'PAID' ? 'badge-paid' : 'badge-pending'}">
@@ -650,66 +829,169 @@
           <div class="bot-header">
             <div class="bot-name">
               <span>🤖</span> ${bot.name}
-              <span class="badge badge-active">${bot.active ? 'Ativo' : 'Pausado'}</span>
+              <span class="badge badge-active">${bot.active ? 'Ativo 24h' : 'Pausado'}</span>
+              <span style="font-size: 11px; background: #222; padding: 2px 6px; border-radius: 4px; color: #bbb;">
+                ${bot.mediaType === 'video' ? '🎬 Com Vídeo' : bot.mediaType === 'photo' ? '🖼️ Com Foto' : '📝 Só Texto'}
+              </span>
             </div>
             <div>
-              <button class="btn btn-outline" style="font-size: 12px; padding: 6px 12px;" onclick="editWelcome('${bot.id}')">Editar Mensagem</button>
+              <button class="btn btn-red" onclick="openEditBotModal('${bot.id}')">✏️ Editar Mensagens & Mídia</button>
             </div>
           </div>
-          <div style="font-size: 13px; color: var(--text-muted);">
-            <b>Token:</b> <code>${bot.token.slice(0, 15)}...${bot.token.slice(-6)}</code>
+
+          <div style="background: #111116; padding: 12px; border-radius: 8px; font-size: 13px; color: #ddd; max-height: 120px; overflow-y: auto; white-space: pre-wrap; border-left: 3px solid var(--primary-red);">
+            ${bot.welcomeMessage || 'Sem mensagem'}
           </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
-            ${(bot.plans || []).map(p => `
-              <div class="plan-chip">
-                <span>${p.name}</span>
-                <span class="plan-price">R$ ${Number(p.price).toFixed(2).replace('.', ',')}</span>
-              </div>
-            `).join('')}
+
+          <div style="font-size: 12px; color: var(--text-muted);">
+            <b>Token Telegram:</b> <code>${bot.token.slice(0, 15)}...${bot.token.slice(-6)}</code>
           </div>
         </div>
       `).join('');
     }
 
     function renderPlans() {
-      const container = document.getElementById('plans-management');
+      const container = document.getElementById('plans-container');
       container.innerHTML = (appData.bots || []).map(bot => `
-        <div style="margin-bottom: 24px; background: #16161d; border-radius: 8px; padding: 18px; border: 1px solid var(--border-color);">
-          <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--accent-red);">${bot.name} - Planos de Venda</h3>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="background: #16161d; border-radius: 10px; padding: 20px; margin-bottom: 24px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="color: var(--accent-red); font-size: 17px;">${bot.name} - Planos de Venda</h3>
+            <button class="btn btn-outline" style="font-size: 12px;" onclick="addPlanRow('${bot.id}')">+ Adicionar Novo Plano</button>
+          </div>
+
+          <div id="plans-list-${bot.id}">
             ${(bot.plans || []).map((p, idx) => `
-              <div style="display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 10px; align-items: center; background: #0e0e12; padding: 10px 14px; border-radius: 6px;">
-                <div><b>${p.name}</b><br><small style="color: var(--text-muted);">${p.description}</small></div>
-                <div>R$ <input type="number" step="0.5" value="${p.price}" onchange="updatePlanPrice('${bot.id}', '${p.id}', this.value)" style="width: 70px; background: #1a1a22; border: 1px solid #333; color: white; padding: 4px 8px; border-radius: 4px;"></div>
-                <div>Link VIP: <input type="text" value="${p.inviteLink}" onchange="updatePlanLink('${bot.id}', '${p.id}', this.value)" style="width: 80%; background: #1a1a22; border: 1px solid #333; color: white; padding: 4px 8px; border-radius: 4px;"></div>
-                <div><span class="badge badge-active">Ativo</span></div>
+              <div class="plan-box" id="plan-${bot.id}-${idx}">
+                <div class="plan-row">
+                  <div>
+                    <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Nome do Botão / Plano</label>
+                    <input type="text" class="input-field plan-name-input" value="${p.name}">
+                  </div>
+                  <div>
+                    <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Preço (R$)</label>
+                    <input type="number" step="0.10" class="input-field plan-price-input" value="${p.price}">
+                  </div>
+                  <div style="align-self: flex-end;">
+                    <button class="btn btn-outline" style="color: #ff4d4d; border-color: #552222; padding: 10px 12px;" onclick="removePlanRow('${bot.id}', ${idx})">🗑️</button>
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Link de Acesso que o Cliente Recebe no Telegram</label>
+                  <input type="text" class="input-field plan-link-input" value="${p.inviteLink || ''}" placeholder="https://t.me/+SEU_CANAL_VIP">
+                </div>
               </div>
             `).join('')}
+          </div>
+
+          <div style="margin-top: 14px; text-align: right;">
+            <button class="btn btn-red" onclick="saveAllPlans('${bot.id}')">💾 Salvar Planos de ${bot.name}</button>
           </div>
         </div>
       `).join('');
     }
 
-    async function updatePlanPrice(botId, planId, newPrice) {
-      await fetch('/api/plans/update', {
+    function addPlanRow(botId) {
+      const bot = appData.bots.find(b => b.id === botId);
+      if (bot) {
+        if (!bot.plans) bot.plans = [];
+        bot.plans.push({
+          id: 'plan_' + Date.now(),
+          name: '🔥 NOVO PLANO VIP',
+          price: 29.90,
+          description: 'Acesso VIP',
+          inviteLink: 'https://t.me/+SEU_LINK'
+        });
+        renderPlans();
+      }
+    }
+
+    function removePlanRow(botId, index) {
+      const bot = appData.bots.find(b => b.id === botId);
+      if (bot && bot.plans) {
+        bot.plans.splice(index, 1);
+        renderPlans();
+      }
+    }
+
+    async function saveAllPlans(botId) {
+      const container = document.getElementById(`plans-list-${botId}`);
+      const planBoxes = container.querySelectorAll('.plan-box');
+      const updatedPlans = [];
+
+      planBoxes.forEach(box => {
+        const name = box.querySelector('.plan-name-input').value;
+        const price = parseFloat(box.querySelector('.plan-price-input').value) || 0;
+        const link = box.querySelector('.plan-link-input').value;
+
+        updatedPlans.push({
+          name: name,
+          price: price,
+          inviteLink: link,
+          type: 'channel_invite'
+        });
+      });
+
+      await fetch('/api/plans/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ botId, planId, price: parseFloat(newPrice) })
+        body: JSON.stringify({ botId, plans: updatedPlans })
       });
+
+      alert('Planos salvos com sucesso!');
       loadData();
     }
 
-    async function updatePlanLink(botId, planId, newLink) {
-      await fetch('/api/plans/update', {
+    function openEditBotModal(botId) {
+      const bot = appData.bots.find(b => b.id === botId);
+      if (!bot) return;
+
+      document.getElementById('edit-bot-id').value = bot.id;
+      document.getElementById('modal-bot-title').innerText = `Editar ${bot.name}`;
+      document.getElementById('edit-bot-name').value = bot.name;
+      document.getElementById('edit-bot-mediatype').value = bot.mediaType || 'none';
+      document.getElementById('edit-bot-mediaurl').value = bot.mediaUrl || '';
+      document.getElementById('edit-bot-welcome').value = bot.welcomeMessage || '';
+      document.getElementById('edit-bot-pixmsg').value = bot.pixMessage || '';
+
+      toggleMediaUrlInput();
+      document.getElementById('editBotModal').style.display = 'flex';
+    }
+
+    function toggleMediaUrlInput() {
+      const type = document.getElementById('edit-bot-mediatype').value;
+      const group = document.getElementById('media-url-group');
+      group.style.display = (type === 'none') ? 'none' : 'block';
+    }
+
+    async function saveBotDetails() {
+      const botId = document.getElementById('edit-bot-id').value;
+      const name = document.getElementById('edit-bot-name').value;
+      const mediaType = document.getElementById('edit-bot-mediatype').value;
+      const mediaUrl = document.getElementById('edit-bot-mediaurl').value;
+      const welcomeMessage = document.getElementById('edit-bot-welcome').value;
+      const pixMessage = document.getElementById('edit-bot-pixmsg').value;
+
+      await fetch('/api/bots/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ botId, planId, inviteLink: newLink })
+        body: JSON.stringify({
+          botId,
+          name,
+          mediaType,
+          mediaUrl,
+          welcomeMessage,
+          pixMessage
+        })
       });
+
+      closeModal('editBotModal');
+      alert('Configurações do bot salvas com sucesso!');
       loadData();
     }
 
     function openAddBotModal() {
-      document.getElementById('botModal').style.display = 'flex';
+      document.getElementById('addBotModal').style.display = 'flex';
     }
 
     function closeModal(id) {
@@ -729,7 +1011,7 @@
         body: JSON.stringify({ name, token, welcomeMessage })
       });
 
-      closeModal('botModal');
+      closeModal('addBotModal');
       loadData();
     }
 
@@ -744,7 +1026,7 @@
         body: JSON.stringify({ pushinPayToken: token, adminPassword: pass })
       });
 
-      alert('Configurações salvas com sucesso!');
+      alert('Configurações salvas!');
       loadData();
     }
 
